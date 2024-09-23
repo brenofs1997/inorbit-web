@@ -17,15 +17,16 @@ jobs:
         uses: dkershner6/vercel-set-env-action@v1
         with:
           token: ${{ secrets.VERCEL_TOKEN }}
-          projectName: nexturl
-          envVariableKeys: MONGODB_URL,MONGODB_DB
+          projectName: inorbit-fernandes
+          envVariableKeys: FIREBASE_API_KEY,FIREBASE_AUTH_DOMAIN,FIREBASE_PROJECT_ID,FIREBASE_STORAGE_BUCKET,FIREBASE_MESSAGING_SENDER_ID,FIREBASE_APP_ID
+
         env:
-          MONGODB_URL: ${{ secrets.DEVELOP_MONGODB_URL }}
-          MONGODB_DB: ${{ secrets.DEVELOP_MONGODB_DB }}
-          TARGET_MONGODB_URL: development
-          TARGET_MONGODB_DB: development
-          TYPE_MONGODB_URL: encrypted
-          TYPE_MONGODB_DB: encrypted
+          FIREBASE_API_KEY: ${{ inputs.firebase_api_key }}
+          FIREBASE_AUTH_DOMAIN: ${{ inputs.firebase_auth_domain }}
+          FIREBASE_PROJECT_ID: ${{ inputs.firebase_project_id }}
+          FIREBASE_STORAGE_BUCKET: ${{ inputs.firebase_storage_bucket }}
+          FIREBASE_MESSAGING_SENDER_ID: ${{ inputs.firebase_messaging_sender_id }}
+          FIREBASE_APP_ID: ${{ inputs.firebase_app_id }}
 
       - name: deploy site to vercel (develop)
         uses: amondnet/vercel-action@v20
@@ -44,15 +45,16 @@ jobs:
         uses: dkershner6/vercel-set-env-action@v1
         with:
           token: ${{ secrets.VERCEL_TOKEN }}
-          projectName: nexturl
-          envVariableKeys: MONGODB_URL,MONGODB_DB
+          projectName: inorbit-fernandes
+          envVariableKeys: FIREBASE_API_KEY,FIREBASE_AUTH_DOMAIN,FIREBASE_PROJECT_ID,FIREBASE_STORAGE_BUCKET,FIREBASE_MESSAGING_SENDER_ID,FIREBASE_APP_ID
+
         env:
-          MONGODB_URL: ${{ secrets.UAT_MONGODB_URL }}
-          MONGODB_DB: ${{ secrets.UAT_MONGODB_DB }}
-          TARGET_MONGODB_URL: preview
-          TARGET_MONGODB_DB: preview
-          TYPE_MONGODB_URL: encrypted
-          TYPE_MONGODB_DB: encrypted
+          FIREBASE_API_KEY: ${{ inputs.firebase_api_key }}
+          FIREBASE_AUTH_DOMAIN: ${{ inputs.firebase_auth_domain }}
+          FIREBASE_PROJECT_ID: ${{ inputs.firebase_project_id }}
+          FIREBASE_STORAGE_BUCKET: ${{ inputs.firebase_storage_bucket }}
+          FIREBASE_MESSAGING_SENDER_ID: ${{ inputs.firebase_messaging_sender_id }}
+          FIREBASE_APP_ID: ${{ inputs.firebase_app_id }}
 
       - name: deploy site to vercel (UAT)
         uses: amondnet/vercel-action@v20
