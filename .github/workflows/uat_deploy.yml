@@ -1,0 +1,16 @@
+name: Deploy to UAT
+
+on:
+  pull_request:
+    branches:
+      - uat
+
+jobs:
+  deploy_uat:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      vercel_env: 'preview'
+      mongodb_url: ${{ secrets.UAT_MONGODB_URL }}
+      mongodb_db: ${{ secrets.UAT_MONGODB_DB }}
+      vercel_org_id: ${{ secrets.UAT_ORG_ID }}
+      vercel_project_id: ${{ secrets.UAT_PROJECT_ID }}

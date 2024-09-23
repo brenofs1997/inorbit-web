@@ -1,0 +1,16 @@
+name: Deploy to Production
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy_production:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      vercel_env: 'production'
+      mongodb_url: ${{ secrets.PRODUCTION_MONGODB_URL }}
+      mongodb_db: ${{ secrets.PRODUCTION_MONGODB_DB }}
+      vercel_org_id: ${{ secrets.PRODUCTION_ORG_ID }}
+      vercel_project_id: ${{ secrets.PRODUCTION_PROJECT_ID }}
