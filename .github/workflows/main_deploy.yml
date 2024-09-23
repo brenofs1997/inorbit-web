@@ -10,7 +10,11 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       vercel_env: 'production'
-      mongodb_url: ${{ secrets.PRODUCTION_MONGODB_URL }}
-      mongodb_db: ${{ secrets.PRODUCTION_MONGODB_DB }}
       vercel_org_id: ${{ secrets.PRODUCTION_ORG_ID }}
       vercel_project_id: ${{ secrets.PRODUCTION_PROJECT_ID }}
+      firebase_api_key: ${{ secrets.FIREBASE_API_KEY }}
+      firebase_auth_domain: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
+      firebase_project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+      firebase_storage_bucket: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
+      firebase_messaging_sender_id: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
+      firebase_app_id: ${{ secrets.FIREBASE_APP_ID }}
