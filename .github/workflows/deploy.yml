@@ -37,7 +37,7 @@ jobs:
           vercel-project-id: ${{ secrets.DEVELOP_PROJECT_ID }}
 
   deploy_uat:
-    if: github.ref == 'refs/heads/uat'  # Este job só roda para a branch uat
+    if: github.ref == 'refs/heads/uat'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -65,7 +65,7 @@ jobs:
           vercel-project-id: ${{ secrets.UAT_PROJECT_ID }}
 
   deploy_production:
-    if: github.ref == 'refs/heads/main'  # Este job só roda para a branch main (produção)
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
