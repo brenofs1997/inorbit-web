@@ -3,13 +3,13 @@ name: Deploy to Vercel
 on:
   pull_request:
     branches:
-      - develop  # para ambiente de desenvolvimento
-      - uat      # para ambiente de UAT
-      - main     # para ambiente de produção
+      - development  
+      - uat      
+      - main     
 
 jobs:
-  deploy_develop:
-    if: github.ref == 'refs/heads/develop'  # Este job só roda para a branch develop
+  deploy_development:
+    if: github.ref == 'refs/heads/development'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,26 +18,26 @@ jobs:
         with:
           token: ${{ secrets.VERCEL_TOKEN }}
           projectName: inorbit-web
-          envVariableKeys: FIREBASE_API_KEY,FIREBASE_AUTH_DOMAIN,FIREBASE_PROJECT_ID,FIREBASE_STORAGE_BUCKET,FIREBASE_MESSAGING_SENDER_ID,FIREBASE_APP_ID
+          envVariableKeys: API_KEY_FIREBASE,AUTH_DOMAIN_FIREBASE,PROJECT_ID_FIREBASE,STORAGE_BUCKET_FIREBASE,MESSAGING_SENDER_ID_FIREBASE,APP_ID_FIREBASE
         env:
-          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-          TARGET_FIREBASE_API_KEY: development
-          TYPE_FIREBASE_API_KEY: encrypted
-          FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
-          TARGET_FIREBASE_AUTH_DOMAIN: development
-          TYPE_FIREBASE_AUTH_DOMAIN: encrypted
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-          TARGET_FIREBASE_PROJECT_ID: development
-          TYPE_FIREBASE_PROJECT_ID: encrypted
-          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
-          TARGET_FIREBASE_STORAGE_BUCKET: development
-          TYPE_FIREBASE_STORAGE_BUCKET: encrypted
-          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
-          TARGET_FIREBASE_MESSAGING_SENDER_ID: development
-          TYPE_FIREBASE_MESSAGING_SENDER_ID: encrypted
-          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-          TARGET_FIREBASE_APP_ID: development
-          TYPE_FIREBASE_APP_ID: encrypted
+          API_KEY_FIREBASE: ${{ secrets.API_KEY_FIREBASE }}
+          TARGET_API_KEY_FIREBASE: development
+          TYPE_API_KEY_FIREBASE: encrypted
+          AUTH_DOMAIN_FIREBASE: ${{ secrets.AUTH_DOMAIN_FIREBASE }}
+          TARGET_AUTH_DOMAIN_FIREBASE: development
+          TYPE_AUTH_DOMAIN_FIREBASE: encrypted
+          PROJECT_ID_FIREBASE: ${{ secrets.PROJECT_ID_FIREBASE }}
+          TARGET_PROJECT_ID_FIREBASE: development
+          TYPE_PROJECT_ID_FIREBASE: encrypted
+          STORAGE_BUCKET_FIREBASE: ${{ secrets.STORAGE_BUCKET_FIREBASE }}
+          TARGET_STORAGE_BUCKET_FIREBASE: development
+          TYPE_STORAGE_BUCKET_FIREBASE: encrypted
+          MESSAGING_SENDER_ID_FIREBASE: ${{ secrets.MESSAGING_SENDER_ID_FIREBASE }}
+          TARGET_MESSAGING_SENDER_ID_FIREBASE: development
+          TYPE_MESSAGING_SENDER_ID_FIREBASE: encrypted
+          APP_ID_FIREBASE: ${{ secrets.APP_ID_FIREBASE }}
+          TARGET_APP_ID_FIREBASE: development
+          TYPE_APP_ID_FIREBASE: encrypted
       - name: deploy site to vercel (develop)
         uses: amondnet/vercel-action@v20
         with:
@@ -56,26 +56,26 @@ jobs:
         with:
           token: ${{ secrets.VERCEL_TOKEN }}
           projectName: inorbit-web
-          envVariableKeys: FIREBASE_API_KEY,FIREBASE_AUTH_DOMAIN,FIREBASE_PROJECT_ID,FIREBASE_STORAGE_BUCKET,FIREBASE_MESSAGING_SENDER_ID,FIREBASE_APP_ID
+          envVariableKeys: API_KEY_FIREBASE,AUTH_DOMAIN_FIREBASE,PROJECT_ID_FIREBASE,STORAGE_BUCKET_FIREBASE,MESSAGING_SENDER_ID_FIREBASE,APP_ID_FIREBASE
         env:
-          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-          TARGET_FIREBASE_API_KEY: preview
-          TYPE_FIREBASE_API_KEY: encrypted
-          FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
-          TARGET_FIREBASE_AUTH_DOMAIN: preview
-          TYPE_FIREBASE_AUTH_DOMAIN: encrypted
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-          TARGET_FIREBASE_PROJECT_ID: preview
-          TYPE_FIREBASE_PROJECT_ID: encrypted
-          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
-          TARGET_FIREBASE_STORAGE_BUCKET: preview
-          TYPE_FIREBASE_STORAGE_BUCKET: encrypted
-          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
-          TARGET_FIREBASE_MESSAGING_SENDER_ID: preview
-          TYPE_FIREBASE_MESSAGING_SENDER_ID: encrypted
-          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-          TARGET_FIREBASE_APP_ID: preview
-          TYPE_FIREBASE_APP_ID: encrypted
+          API_KEY_FIREBASE: ${{ secrets.API_KEY_FIREBASE }}
+          TARGET_API_KEY_FIREBASE: preview
+          TYPE_API_KEY_FIREBASE: encrypted
+          AUTH_DOMAIN_FIREBASE: ${{ secrets.AUTH_DOMAIN_FIREBASE }}
+          TARGET_AUTH_DOMAIN_FIREBASE: preview
+          TYPE_AUTH_DOMAIN_FIREBASE: encrypted
+          PROJECT_ID_FIREBASE: ${{ secrets.PROJECT_ID_FIREBASE }}
+          TARGET_PROJECT_ID_FIREBASE: preview
+          TYPE_PROJECT_ID_FIREBASE: encrypted
+          STORAGE_BUCKET_FIREBASE: ${{ secrets.STORAGE_BUCKET_FIREBASE }}
+          TARGET_STORAGE_BUCKET_FIREBASE: preview
+          TYPE_STORAGE_BUCKET_FIREBASE: encrypted
+          MESSAGING_SENDER_ID_FIREBASE: ${{ secrets.MESSAGING_SENDER_ID_FIREBASE }}
+          TARGET_MESSAGING_SENDER_ID_FIREBASE: preview
+          TYPE_MESSAGING_SENDER_ID_FIREBASE: encrypted
+          APP_ID_FIREBASE: ${{ secrets.APP_ID_FIREBASE }}
+          TARGET_APP_ID_FIREBASE: preview
+          TYPE_APP_ID_FIREBASE: encrypted
       - name: deploy site to vercel (UAT)
         uses: amondnet/vercel-action@v20
         with:
@@ -94,26 +94,26 @@ jobs:
         with:
           token: ${{ secrets.VERCEL_TOKEN }}
           projectName: inorbit-web
-          envVariableKeys: FIREBASE_API_KEY,FIREBASE_AUTH_DOMAIN,FIREBASE_PROJECT_ID,FIREBASE_STORAGE_BUCKET,FIREBASE_MESSAGING_SENDER_ID,FIREBASE_APP_ID
+          envVariableKeys: API_KEY_FIREBASE,AUTH_DOMAIN_FIREBASE,PROJECT_ID_FIREBASE,STORAGE_BUCKET_FIREBASE,MESSAGING_SENDER_ID_FIREBASE,APP_ID_FIREBASE
         env:
-          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-          TARGET_FIREBASE_API_KEY: production
-          TYPE_FIREBASE_API_KEY: encrypted
-          FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
-          TARGET_FIREBASE_AUTH_DOMAIN: production
-          TYPE_FIREBASE_AUTH_DOMAIN: encrypted
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-          TARGET_FIREBASE_PROJECT_ID: production
-          TYPE_FIREBASE_PROJECT_ID: encrypted
-          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
-          TARGET_FIREBASE_STORAGE_BUCKET: production
-          TYPE_FIREBASE_STORAGE_BUCKET: encrypted
-          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
-          TARGET_FIREBASE_MESSAGING_SENDER_ID: production
-          TYPE_FIREBASE_MESSAGING_SENDER_ID: encrypted
-          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-          TARGET_FIREBASE_APP_ID: production
-          TYPE_FIREBASE_APP_ID: encrypted
+          API_KEY_FIREBASE: ${{ secrets.API_KEY_FIREBASE }}
+          TARGET_API_KEY_FIREBASE: production
+          TYPE_API_KEY_FIREBASE: encrypted
+          AUTH_DOMAIN_FIREBASE: ${{ secrets.AUTH_DOMAIN_FIREBASE }}
+          TARGET_AUTH_DOMAIN_FIREBASE: production
+          TYPE_AUTH_DOMAIN_FIREBASE: encrypted
+          PROJECT_ID_FIREBASE: ${{ secrets.PROJECT_ID_FIREBASE }}
+          TARGET_PROJECT_ID_FIREBASE: production
+          TYPE_PROJECT_ID_FIREBASE: encrypted
+          STORAGE_BUCKET_FIREBASE: ${{ secrets.STORAGE_BUCKET_FIREBASE }}
+          TARGET_STORAGE_BUCKET_FIREBASE: production
+          TYPE_STORAGE_BUCKET_FIREBASE: encrypted
+          MESSAGING_SENDER_ID_FIREBASE: ${{ secrets.MESSAGING_SENDER_ID_FIREBASE }}
+          TARGET_MESSAGING_SENDER_ID_FIREBASE: production
+          TYPE_MESSAGING_SENDER_ID_FIREBASE: encrypted
+          APP_ID_FIREBASE: ${{ secrets.APP_ID_FIREBASE }}
+          TARGET_APP_ID_FIREBASE: production
+          TYPE_APP_ID_FIREBASE: encrypted
       - name: deploy site to vercel (production)
         uses: amondnet/vercel-action@v20
         with:
