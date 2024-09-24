@@ -80,7 +80,7 @@ jobs:
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: '--uat'
+          vercel-args: '--preview'
           vercel-org-id: ${{ secrets.UAT_ORG_ID }}
           vercel-project-id: ${{ secrets.UAT_PROJECT_ID }}
 
