@@ -9,12 +9,12 @@ const {
 } = import.meta.env
 
 const firebaseConfig = {
-  apiKey: API_KEY_FIREBASE || '',
-  authDomain: AUTH_DOMAIN_FIREBASE || '',
-  projectId: PROJECT_ID_FIREBASE || '',
-  storageBucket: STORAGE_BUCKET_FIREBASE || '',
-  messagingSenderId: MESSAGING_SENDER_ID_FIREBASE || '',
-  appId: APP_ID_FIREBASE || '',
+  apiKey: VITE_API_KEY_FIREBASE || '', 
+  authDomain: VITE_AUTH_DOMAIN_FIREBASE || '',
+  projectId: VITE_PROJECT_ID_FIREBASE || '',
+  storageBucket: VITE_STORAGE_BUCKET_FIREBASE || '',
+  messagingSenderId: VITE_MESSAGING_SENDER_ID_FIREBASE || '',
+  appId: VITE_APP_ID_FIREBASE || '',
 }
 
 export const app = initializeApp(firebaseConfig)
